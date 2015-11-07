@@ -3,8 +3,13 @@
 # can be changed and altered.
 #---------------------------------------------------------------------#
 
-#Locale: en-us
+#Locale: en-us, de-de, nl-nl
 Locale: en-us
+
+#General Options
+Options:
+    #Disable ItemCase creation via sneaking and right clicking
+    Disable-Sneak-Create: false
     
 #Update options
 Updates:
@@ -12,3 +17,15 @@ Updates:
     Check-For-Update: true
     # Use a custom API key for the ServerMods API. (Optional)
     API-Key: your_api_key
+    
+#Order options
+Order:
+    #The time in seconds before an order automatically times out. (Disable-Timeout: false)
+    Timeout: 15
+    #If automatic timeout is disabled
+    Disable-Timeout: false
+   
+#Blocks that can be used for ItemCases.   
+Blocks:
+    - 44 #Slab
+    - 126 #Wooded Slabs

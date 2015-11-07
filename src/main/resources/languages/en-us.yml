@@ -6,6 +6,7 @@ Console:
     Update-Available: A newer version of ItemCase is available!
     Itemcases-Created: Loaded and created saved itemcases.
     Itemcases-Destroyed: Saved and destroyed itemcases.
+    Incorrect-Craftbukkit-Version: Incorrect version of CraftBukkit is being used.
     Errors:
         Itemcase-Loader:
             Load-Error: Failed to load a saved itemcase.
@@ -13,24 +14,103 @@ Console:
             Owner-Error: Failed to load saved owner of itemcase.
             Item-Error: Failed to load saved item data of itemcase.
     Command: You must be a player to use this command.
+    Vault:
+        Successful: Loaded Vault.
+        Unsuccessful: Failed to load Vault. (You need Vault and an Economy plugin installed too.)
+    WorldGuard:
+        Successful: Loaded WorldGuard.
+    Metrics:
+        Successful: Started Metrics.
+        Unsuccessful: Failed to start Metrics.
+        Disabled: Plugin Metrics Disabled!
 Player:
     ItemCase:
         Created: "(GREEN)Itemcase created."
-        Created-Permission: "(RED) You don't have permission to create an itemcase."
+        Created-Permission: "(RED)You don't have permission to create an itemcase."
+        Created-Region: "(RED)You don't have permission to create an itemcase here."
+        Created-Block: "(RED)This block can't be used as an ItemCase."
+        Created-Hand: "(RED)You must hold the item in hand."
         Destroyed: "(GREEN)Itemcase destroyed."
-        Destroyed-Permission: "(RED) You don't own this itemcase!"
+        Destroyed-Permission: "(RED)You don't own this itemcase!"
+        Shop-Order-Processing-1: "(RED)You already have an order processing."
+        Shop-Order-Processing-2: "(RED)Use: (GOLD)/itemc cancel (RED)to cancel order."
+        Stop-Chat: "(GREEN)Paused chat..."
+        Start-Chat: "(GREEN)Resumed chat..."
+        Shop-Message1: "(GREEN)----------------- ItemCase -----------------"
+        Shop-Message2: "(GREEN)Item: (GOLD)%Item%"
+        Shop-Message3: "(GREEN)Enchantments: (GOLD)%Enchantments%"
+        Shop-Message4: "(GREEN)Do you want to (GOLD)BUY(GREEN) or (GOLD)SELL (GREEN)items:"
+        Shop-Message5: "(GREEN)Buy Price: (GOLD)%Cost% (GREEN)%Currency%"
+        Shop-Message6: "(GREEN)Sell Price: (GOLD)%Cost% (GREEN)%Currency%"
+        Shop-Message7: "(GREEN)Enter the amount you want to buy:"
+        Shop-Message8: "(GREEN)Enter the amount you want to sell:"
+        Shop-Message-Owner: "(GREEN)Owner: (GOLD)%Player%"
+        No-Buy: "(RED)You can't buy items from this itemcase."
+        No-Sell: "(RED)You can't sell items to this itemcase."
+        Permission-Sell: "(RED)You don't have permission to sell items."
+        Permission-Buy: "(RED)You don't have permission to buy items."
+        Invalid-Option: "(RED)You must enter (GOLD)BUY (RED)or (GOLD)SELL (RED)."
+        Vault-Warning: "(RED)Vault must be installed to use shops."
     Modify:
-        Usage: "(RED)Usage: (GOLD)/ic modify [showcase/shop]"
-        Unknown-Type: "(RED)Types: GOLD)showcase(RED), (GOLD)shop(RED)."
+        Usage: "(RED)Usage: (GOLD)/itemc modify [showcase/shop/infinite]"
+        Unknown-Type: "(RED)Types: (GOLD)showcase(RED), (GOLD)shop(RED)."
         Select: "(GREEN)Select an itemcase to modify."
-        Cancel: "(GREEN)To cancel: (GOLD)/ic cancel"
+        Cancel: "(GREEN)To cancel: (GOLD)/itemc cancel"
+        Modify-Permission: "(RED)You don't own this itemcase!"
         Shop:
-            Usage: "(RED)Usage: (GOLD)/ic modify shop [buy/sell] [price]"
+            Usage: "(RED)Usage: (GOLD)/itemc modify shop [buy/sell] [price]"
             Invalid-Type: "(RED)Invalid type (GOLD)%type%(RED). (GOLD)BUY (RED)or (GOLD)SELL(RED)."
             Invalid-Price: "(RED)Not a valid price."
-            Successful: "(GREEN)Changed selected itemcase to a shop."
+            Buy: "(GREEN)Selected itemcase now allows players to buy items."
+            Sell: "(GREEN)Selected itemcase now allows player to sell items."
         Showcase:
-            Usage: "(RED)Usage: (GOLD)/ic modify showcase"
+            Usage: "(RED)Usage: (GOLD)/itemc modify showcase"
             Successful: "(GREEN)Changed selected itemcase to a showcase."
+        Infinite:
+            Usage: "(RED)Usage: (GOLD)/itemc modify infinite [true/false]"
+            Successful: "(GREEN)Changed selected itemcase to infinite: (GOLD)%Boolean%(GREEN)."
+        Pickup:
+            Usage: "(RED)Usage: (GOLD)/itemc modify pickup [interval in seconds]"
+            Invalid-Interval: "(RED)Not a valid interval."
+            Successful: "(GREEN)Changed selected itemcase to a pickup point."
+    Order:
+        Usage: "(RED)Usage: (GOLD)/itemc order [amount/buy/sell]"
+        No-Order: "(RED)No current order in progress."
+        Already-Amount: "(RED)You are already setting the amount..."
+        Mode-Set: "(GREEN)Set mode: (GOLD)%Mode%(GREEN)."
+        Amount-Set: "(GREEN)Set amount: (GOLD)%Amount%(GREEN)."
+        End: "(GREEN)-------------------------------------------"
+        Amount-Error1: "(RED)Invalid amount."
+        Amount-Error2: "(RED)Amount must be greator than zero."
+        Balance-Error: "(RED)You don't have enough money."
+        Item-Error: "(RED)You don't have enough items."
+        Transaction-Error: "(RED)Transaction Failed."
+        Bought-Items: "(GREEN)Bought (GOLD)%Amount% %Item%(GREEN)."
+        Sold-Items: "(GREEN)Sold (GOLD)%Amount% %Item%(GREEN)."
+        Withdraw: "(GREEN)Withdrew (GOLD)%Amount% (GREEN)%Currency% from your account."
+        Deposit: "(GREEN)Added (GOLD)%Amount% (GREEN)%Currency% to your account."
+        Canceled: "(GREEN)Order canceled."
+        Timeout: "(RED)Order timed out."
+        No-Stock: "(RED)Sorry, this itemcase does not have enough stock."
+        Owner-Balance: "(RED)Sorry, this itemcase owner does not have enough money."
+        Owner-Buy: "(GREEN)Player (GOLD)%Player% (GREEN)bought (GOLD)%Amount% %Item%(GREEN)."
+        Owner-Sell: "(GREEN)Player (GOLD)%Player% (GREEN)sold (GOLD)%Amount% %Item%(GREEN)."
+    Storage:
+        Infinite: "(RED)This itemcase is infinite."
+        No-Storage: "(RED)Itemcase must be a shop or a pickup point."
+        Select: "(GREEN)Select an itemcase to view the storage of."
+        Cancel: "(GREEN)To cancel: (GOLD)/itemc cancel"
+        Storage-Permission: "(RED)You don't own this itemcase!"
+    Cancel:
+        Canceled: "(GREEN)Itemcase selection canceled."
+        Error: "(RED)You are not currently selecting an itemcase."
+    Help:
+        Message1: "(GREEN)--------------- ItemCase Help ---------------"
+        Message2: "(GOLD)/itemc create (GREEN)| Create new ItemCase."
+        Message3: "(GOLD)/itemc storage (GREEN)| Open a finite shops inventory."
+        Message4: "(GOLD)/itemc modify [infinite/showcase/shop] (GREEN)| Change options of itemcase."
+        Message5: "(GOLD)/itemc cancel (GREEN)| Cancel order or selection of an itemcase."
+        Message6: "(GREEN)-------------------------------------------"
     Permission: "(RED)You don't have permission to use this command."
-    Syntax-Error: "(RED) Invalid command. (GOLD)/ic help (RED)for more."
+    Permission-Itemcase: "(RED)You don't have permission to do this."
+    Syntax-Error: "(RED)Invalid command. (GOLD)/itemc help (RED)for more."

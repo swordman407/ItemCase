@@ -14,23 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/gpl.html>.
  */
-package com.gmail.bleedobsidian.itemcase.managers.interfaces;
-
-import com.gmail.bleedobsidian.itemcase.managers.itemcase.Itemcase;
-import org.bukkit.entity.Player;
+package com.gmail.bleedobsidian.itemcase.managers.orders;
 
 /**
- * An interface listener for commands needing to use Itemcase selection.
+ * An enum containing all of the possible order modes.
  *
  * @author BleedObsidian (Jesse Prescott)
  */
-public interface SelectionListener {
+public enum OrderMode {
 
-    /**
-     * An Itemcase was selected.
-     *
-     * @param player Player.
-     * @param itemcase Itemcase selected.
-     */
-    public void selected(Player player, Itemcase itemcase);
+    BUY, SELL;
 }

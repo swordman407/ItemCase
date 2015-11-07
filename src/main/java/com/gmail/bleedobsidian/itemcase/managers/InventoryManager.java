@@ -16,64 +16,55 @@
  */
 package com.gmail.bleedobsidian.itemcase.managers;
 
-import com.gmail.bleedobsidian.itemcase.managers.interfaces.SelectionListener;
 import com.gmail.bleedobsidian.itemcase.managers.itemcase.Itemcase;
 import java.util.HashMap;
-import java.util.Map;
 import org.bukkit.entity.Player;
 
 /**
- * A manager to handle all selection listeners. (Only used internally, please
- * use API)
+ * A manager to keep track of open inventories for ItemCase. (Only used
+ * internally)
  *
  * @author BleedObsidian (Jesse Prescott)
  */
-public class SelectionManager {
+public class InventoryManager {
 
     /**
-     * Pending selections.
+     * Open Itemcase inventories.
      */
-    private final Map<Player, SelectionListener> pending = new HashMap<Player, SelectionListener>();
+    private final HashMap<Player, Itemcase> openInventories = new HashMap<Player, Itemcase>();
 
     /**
-     * On player select Itemcase.
+     * Add inventory to open list.
      *
      * @param player Player.
      * @param itemcase Itemcase.
      */
-    public void onPlayerSelect(Player player, Itemcase itemcase) {
-        if (pending.containsKey(player)) {
-            pending.get(player).selected(player, itemcase);
-            pending.remove(player);
-        }
+    public void addOpenInventory(Player player, Itemcase itemcase) {
+        this.openInventories.put(player, itemcase);
     }
 
     /**
-     * Add a pending selection to the open list.
+     * Remove inventory from open list.
      *
-     * @param listener Listener.
      * @param player Player.
      */
-    public void addPendingSelection(SelectionListener listener, Player player) {
-        this.pending.put(player, listener);
+    public void removeOpenInventory(Player player) {
+        this.openInventories.remove(player);
     }
 
     /**
-     * Remove a pending selection to the closed list.
-     *
      * @param player Player.
+     * @return If player is viewing inventory.
      */
-    public void removePendingSelection(Player player) {
-        this.pending.remove(player);
+    public boolean hasOpenInventory(Player player) {
+        return this.openInventories.containsKey(player);
     }
 
     /**
-     * If player is pending an Itemcase selection.
-     *
      * @param player Player.
-     * @return If pending selection or not.
+     * @return Get Itemcase from open inventory.
      */
-    public boolean isPendingSelection(Player player) {
-        return this.pending.get(player) != null;
+    public Itemcase getItemcaseForPlayer(Player player) {
+        return this.openInventories.get(player);
     }
 }

@@ -14,30 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/gpl.html>.
  */
-
 package com.gmail.bleedobsidian.itemcase.command.listeners;
 
-import org.bukkit.entity.Player;
-
-import com.gmail.bleedobsidian.itemcase.ItemCase;
-import com.gmail.bleedobsidian.itemcase.command.commands.Modify;
+import com.gmail.bleedobsidian.itemcase.command.commands.StorageCommand;
 import com.gmail.bleedobsidian.itemcase.managers.interfaces.SelectionListener;
 import com.gmail.bleedobsidian.itemcase.managers.itemcase.Itemcase;
-import com.gmail.bleedobsidian.itemcase.managers.itemcase.ItemcaseType;
+import org.bukkit.entity.Player;
 
-public class ItemcaseSelectionListener implements SelectionListener {
-    private final ItemCase plugin;
-    private final ItemcaseType type;
-    private final String[] args;
+/**
+ * Storage Command Selection Listen
+ *
+ * @author BleedObsidian (Jesse Prescott)
+ */
+public class StorageSelectionListener implements SelectionListener {
 
-    public ItemcaseSelectionListener(ItemCase plugin, ItemcaseType type,
-            String[] args) {
-        this.plugin = plugin;
-        this.type = type;
-        this.args = args;
-    }
-
+    /**
+     * On selection.
+     */
     public void selected(Player player, Itemcase itemcase) {
-        Modify.selected(plugin, player, args, itemcase, type);
+        StorageCommand.selected(player, itemcase);
     }
 }

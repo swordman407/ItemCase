@@ -14,9 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/gpl.html>.
  */
-
 package com.gmail.bleedobsidian.itemcase.managers.itemcase;
 
+/**
+ * Itemcase Type.
+ *
+ * @author BleedObsidian (Jesse Prescott)
+ */
 public enum ItemcaseType {
-    SHOWCASE, SHOP;
+
+    SHOWCASE, SHOP, PICKUP_POINT;
 }
